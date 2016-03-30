@@ -57,6 +57,17 @@ angular
         templateUrl: 'channels/create.html',
         controller: 'ChannelsCtrl as channelsCtrl'
       })
+      .state('channels.messages', {
+        url: '/{channelId}/messages',
+        resolve: {
+          messages: function($stateParams, Messages){
+            return Messages.forChannel($stateParams.channelId).$loaded();
+          },
+          channelName: function($stateParams, channels){
+            return '#'+channels.$getRecord($stateParams.channelId).name;
+          }
+        }
+      })
       .state('profile', {
         url: '/profile',
         controller: 'ProfileCtrl as profileCtrl',
@@ -105,4 +116,4 @@ angular
 
     $urlRouterProvider.otherwise('/');
   })
-  .constant('FirebaseUrl', 'https://thinkster-fire-slack.firebaseio.com');
+  .constant('FirebaseUrl', 'https://thinkster-fire-slack.firebaseio.com/');
