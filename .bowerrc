@@ -1,3 +1,5 @@
 {
-  "directory": "bower_components"
+  "directory": "bower_components",
+  "proxy":"http://bgavhale:b%23%242437X@arlwcg01.igatecorp.com:8080",
+  "https-proxy":"http://bgavhale:b%23%242437X@arlwcg01.igatecorp.com:8080"
 }
